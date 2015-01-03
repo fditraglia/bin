@@ -1,4 +1,4 @@
 bin
 ===
 
-Scrips and utilites in my ~/bin directory
+Scripts and utilites in my ~/bin directory
