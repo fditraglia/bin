@@ -1,0 +1,9 @@
+#!/bin/bash
+CURRENTBRANCH=$(git rev-parse --abbrev-ref HEAD)
+LASTCOMMITMESSAGE=$(git log -1 --pretty=%B)
+LASTCOMMITFILES=$(git diff-tree --no-commit-id --name-only -r HEAD)
+PDFS=$(echo $LASTCOMMITFILES | egrep -o '([[:alnum:]]|_)+\.pdf')
+echo -e "The current branch is:\n$CURRENTBRANCH"
+echo -e "The last commit message was:\n$LASTCOMMITMESSAGE"
+echo -e "The files changed in the last commit were:\n$LASTCOMMITFILES"
+echo -e "Of these, the following were pdfs:\n$PDFS"
