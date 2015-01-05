@@ -5,9 +5,11 @@ then
   echo "Aborting: the current branch is not master."
   exit
 fi
+ROOTREPO=$(git rev-parse --show-toplevel)
 LASTCOMMITMESSAGE=$(git log -1 --pretty=%B)
 LASTCOMMITFILES=$(git diff-tree --no-commit-id --name-only -r HEAD)
 PDFS=$(echo $LASTCOMMITFILES | egrep -o '([[:alnum:]]|_)+\.pdf')
+echo -e "The path to this repository is:\n$ROOTREPO"
 echo -e "The current branch is:\n$CURRENTBRANCH"
 echo -e "The last commit message was:\n$LASTCOMMITMESSAGE"
 echo -e "The files changed in the last commit were:\n$LASTCOMMITFILES"
