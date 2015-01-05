@@ -1,9 +1,19 @@
 #!/bin/bash
 CURRENTBRANCH=$(git rev-parse --abbrev-ref HEAD)
+if [ $CURRENTBRANCH != "master" ]
+then
+  echo "Aborting: the current branch is not master."
+  exit
+fi
 LASTCOMMITMESSAGE=$(git log -1 --pretty=%B)
 LASTCOMMITFILES=$(git diff-tree --no-commit-id --name-only -r HEAD)
 PDFS=$(echo $LASTCOMMITFILES | egrep -o '([[:alnum:]]|_)+\.pdf')
 echo -e "The current branch is:\n$CURRENTBRANCH"
 echo -e "The last commit message was:\n$LASTCOMMITMESSAGE"
 echo -e "The files changed in the last commit were:\n$LASTCOMMITFILES"
+if [ -z "$PDFS" ]
+then
+  echo "There are no pdfs to checkout."
+  exit
+fi
 echo -e "Of these, the following were pdfs:\n$PDFS"
