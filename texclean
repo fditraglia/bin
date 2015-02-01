@@ -1,0 +1,7 @@
+#!/bin/bash
+rm *.aux
+rm *.log
+rm *.fdb_latexmk
+rm *.out
+rm *.fls
+rm *.synctex.gz
