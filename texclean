@@ -6,3 +6,5 @@ rm *.out
 rm *.fls
 rm *.synctex.gz
 rm *.toc
+rm *.nav
+rm *.snm
