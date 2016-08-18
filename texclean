@@ -8,3 +8,5 @@ rm *.synctex.gz
 rm *.toc
 rm *.nav
 rm *.snm 
+rm *.bbl
+rm *.blg
