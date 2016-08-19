@@ -1,0 +1,2 @@
+#!/bin/bash
+convert "$1" -resize "33x33%" "small_$1"
