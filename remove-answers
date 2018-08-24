@@ -1,4 +1,12 @@
 #!/bin/bash
+
+# This script removes any text between the following 
+#       <!-- ANS_START -->
+#       <!-- ANS_END -->
+# from an RMarkdown file to create a "student version" without answers.
+# The answer is replaced with text that instructs the students to append
+# their own solution, and a new Rmd file is generated with the suffix
+# "-student" added to the original file.
 anspath=$1
 studpath="${anspath/.[Rr]md/_stud.Rmd}"
 if [ -f "$studpath" ] ; then
